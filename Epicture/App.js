@@ -1,22 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Gallery from './Components/Gallery'
-import Profile from './Components/Profile'
+import { StyleSheet, Text, View, } from 'react-native'
+import { createBottomTabNavigator } from 'react-navigation'
+import ProfileNavigation from './Navigation/ProfileNavigation'
+import Search from './Components/Search'
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Gallery/>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#09545b',
-    justifyContent: 'center',
-  },
+const TabNavigation = createBottomTabNavigator({
+	Search: {screen: Search},
+	Profile: {screen: ProfileNavigation},
 });
+
+export default TabNavigation
