@@ -13,10 +13,8 @@ export function getContent(page) {
 }
 
 export function searchImg(query, sort, window) {
-
-	// var url = "https://api.imgur.com/3/gallery/search/time/1?q=" + query
-	var url = "https://api.imgur.com/3/gallery/search/" + sort + "/" + window + "/1?q=" + query
-	console.log("Search")
+	var rplc = query.replace(' ', '+')
+	var url = "https://api.imgur.com/3/gallery/search/" + sort + "/" + window + "/1?q=" + rplc
 	return fetch(url, {
 		headers: {
 			'Authorization': "Client-ID " + API_TOKEN
